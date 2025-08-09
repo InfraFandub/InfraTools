@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Imagen Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Nueva sección para el script inyectable -->
+    <div class="script-section">
+        <h3>🚀 Script Inyectable Universal</h3>
+        <p>¡Usa esta herramienta en cualquier página web! Copia el código y pégalo en la consola del navegador (F12 > Consola) en cualquier sitio web.</p>
+        <button id="copyButton" onclick="copiarScript()">📋 Copiar Script</button>
+        <small id="copyMessage" style="color: #28a745; margin-left: 10px; display: none;">¡Copiado al portapapeles!</small>
+    </div>
+
+    <div class="controls">
+        <textarea id="htmlInput" 
+                  placeholder="O pega aquí el código HTML de la página (F12 > Elementos > copiar el elemento que contiene la imagen)"
+                  style="width: 100%; height: 100px; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+        <button onclick="procesarHTML()">Procesar HTML pegado</button>
+    </div>
+
+    <div class="main-container">
+        <div class="loading" id="loading">
+            Buscando imágenes...
+        </div>
+        <div class="image-container"></div>
+        <div class="image-actions">
+            <button onclick="descargarZip()" style="display: none;" id="downloadZip">Descargar todas en ZIP</button>
+        </div>
+        <div id="error"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

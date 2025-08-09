@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenador de Imágenes</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font for better readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="message-box" id="messageBox">
+        <p id="messageText"></p>
+        <button onclick="hideMessageBox()">OK</button>
+    </div>
+
+    <div class="container">
+        <div class="controls">
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" multiple accept="image/*" class="hidden">
+            <button id="loadImagesButton" class="bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500">
+                Cargar Imágenes
+            </button>
+            <input type="text" id="search" placeholder="Buscar por nombre..."
+                   class="focus:ring-blue-500 focus:border-blue-500">
+            <span id="imageCounter" class="text-gray-600 text-sm">0/0</span>
+        </div>
+
+        <div class="file-info">
+            Nombre actual: <span id="currentFileName" class="font-semibold text-gray-800">Ninguna imagen cargada</span>
+        </div>
+
+        <div class="main-image">
+            <img id="currentImage" src="" alt="Imagen actual">
+        </div>
+
+        <div class="image-navigation">
+            <button id="prevButton" disabled class="bg-gray-300 text-gray-800 hover:bg-gray-400 focus:ring-gray-500">
+                Anterior
+            </button>
+            <div class="rename-section flex-grow flex items-center justify-center gap-2">
+                <input type="text" id="newName" placeholder="Nuevo nombre..." disabled
+                       class="focus:ring-green-500 focus:border-green-500">
+                <button id="renameButton" disabled class="bg-green-600 text-white hover:bg-green-700 focus:ring-green-500">
+                    Renombrar
+                </button>
+            </div>
+            <button id="nextButton" disabled class="bg-gray-300 text-gray-800 hover:bg-gray-400 focus:ring-gray-500">
+                Siguiente
+            </button>
+        </div>
+
+        <div class="thumbnails" id="thumbnailContainer">
+            <!-- Thumbnails will be displayed here -->
+        </div>
+
+        <div class="image-actions mt-4 text-center">
+            <button id="downloadButton" disabled
+                    class="bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-150 ease-in-out shadow-md">
+                Descargar Todas
+            </button>
+        </div>
+    </div>
+
+    <!-- JSZip library for creating ZIP files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- FileSaver.js for saving files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

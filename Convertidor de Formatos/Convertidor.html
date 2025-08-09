@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Imágenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Convertidor de Formatos de Imágenes</h1>
+        
+        <div id="drop-area" class="drop-area">
+            <p>Arrastra y suelta imágenes aquí, o haz clic para seleccionar archivos.</p>
+            <input type="file" id="fileElem" multiple accept="image/*">
+            <button onclick="document.getElementById('fileElem').click()">Seleccionar Imágenes</button>
+        </div>
+
+        <div class="controls">
+            <label for="output-format">Convertir a:</label>
+            <select id="output-format">
+                <option value="image/jpeg">JPG</option>
+                <option value="image/png">PNG</option>
+                <option value="image/webp" selected>WebP</option>
+            </select>
+            <button id="convert-btn">Convertir</button>
+            <button id="clear-btn">Limpiar Imágenes</button>
+            <button id="download-all-btn" style="display: none;">Descargar todo (ZIP)</button>
+        </div>
+
+        <div id="preview-area" class="preview-area">
+            <h2>Imágenes Cargadas / Convertidas</h2>
+            <p id="no-images-message">No hay imágenes cargadas aún.</p>
+            </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
